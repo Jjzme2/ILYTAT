@@ -13,26 +13,26 @@ const responder = new ResponseService();
 */
 
 router.get('/', async (req, res) => {
-	responder.setResponse(res);
-	responder.sendData({
-		message: 'Welcome to the blog API',
-		routes: [
-			{
-				about: 'Send a message and show the routes available',
-				path: '/blog/',
-			},
-			{
-				about: 'Get blogs within the tech subdirectory',
-				path: '/blog/tech/:fileName',
-			},
-		],
-	});
+  responder.setResponse(res);
+  responder.sendData({
+    message: 'Welcome to the blog API',
+    routes: [
+      {
+        about: 'Send a message and show the routes available',
+        path: '/blog/',
+      },
+      {
+        about: 'Get blogs within the tech subdirectory',
+        path: '/blog/tech/:fileName',
+      },
+    ],
+  });
 });
 
 router.get('/tech/:fileName', async (req, res) => {
-	responder.setResponse(res);
-	const post = controller.getFile(req.params.fileName, 'tech');
-	responder.sendData(post.read());
+  responder.setResponse(res);
+  const post = controller.getFile(req.params.fileName, 'tech');
+  responder.sendData(post.read());
 });
 
 module.exports = router;

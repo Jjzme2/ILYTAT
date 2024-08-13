@@ -16,14 +16,14 @@ const blogRoutes = require('./blogRoutes');
 
 // * Apply Routes -- This is where you define your routes
 const applyRoutes = (app) => {
-	// - Kept to demonstrate how auth would be used
-	// app.use(auth(config));
+  // - Kept to demonstrate how auth would be used
+  // app.use(auth(config));
 
-	app.use('/', mainRoutes);
-	app.use('/blog', blogRoutes);
+  app.use('/', mainRoutes);
+  app.use('/blog', blogRoutes);
 
-	// - Kept to demonstrate how require auth would be used
-	// app.use("/dev/wiki", requiresAuth(), wikiRoutes);
+  // - Kept to demonstrate how require auth would be used
+  // app.use("/dev/wiki", requiresAuth(), wikiRoutes);
 };
 
 module.exports = { applyRoutes };

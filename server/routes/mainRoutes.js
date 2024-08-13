@@ -11,17 +11,17 @@ const responder = new ResponseService();
 
 // Home Route
 router.get('/', async (req, res) => {
-	responder.setResponse(res);
+  responder.setResponse(res);
 
-	// !Create a Controller for transactions and other services. This way we can keep the routes clean. This is just a sample.
-	const sample = await new TransactionService().getExpenses();
+  // !Create a Controller for transactions and other services. This way we can keep the routes clean. This is just a sample.
+  const sample = await new TransactionService().getExpenses();
 
-	const data = {
-		message: 'Welcome to the ILYTAT Server.',
-		user: req.user || null,
-		sampleData: sample || null,
-	};
-	responder.sendData(data);
+  const data = {
+    message: 'Welcome to the ILYTAT Server.',
+    user: req.user || null,
+    sampleData: sample || null,
+  };
+  responder.sendData(data);
 });
 
 module.exports = router;
